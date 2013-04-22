@@ -53,4 +53,4 @@ var BassView = Backbone.View.extend({
     
 });
 
-exports = module.exports = BaseView
+exports = module.exports = BassView

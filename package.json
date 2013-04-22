@@ -1,0 +1,20 @@
+{
+  "name": "bassview",
+  "version": "0.0.0",
+  "description": "base view for backbone",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": "",
+  "keywords": [
+    "backbone",
+    "view"
+  ],
+  "author": "andy perlitch",
+  "license": "BSD",
+  "dependencies": {
+      "underscore": ">=1.4.4",
+      "backbone": ">=1.0.0"
+  }
+}

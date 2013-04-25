@@ -1,6 +1,6 @@
 {
   "name": "bassview",
-  "version": "0.0.1",
+  "version": "0.0.3",
   "description": "base view for backbone",
   "main": "index.js",
   "scripts": {
@@ -12,9 +12,5 @@
     "view"
   ],
   "author": "andy perlitch",
-  "license": "BSD",
-  "dependencies": {
-      "underscore": ">=1.4.4",
-      "backbone": ">=1.0.0"
-  }
+  "license": "BSD"
 }

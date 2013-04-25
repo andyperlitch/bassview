@@ -1,6 +1,3 @@
-// check for global
-if (!_) var _ = require('underscore');
-if (!Backbone) var Backbone = require('backbone');
 var BassView = Backbone.View.extend({
     
     // Assigns a view to a jquery selector in this view's element.

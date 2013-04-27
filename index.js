@@ -1,3 +1,4 @@
+var _ = require('underscore'), Backbone = require('backbone');
 var BassView = Backbone.View.extend({
     
     // Assigns a view to a jquery selector in this view's element.

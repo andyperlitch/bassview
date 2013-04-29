@@ -40,7 +40,10 @@ var BassView = Backbone.View.extend({
         if (view === undefined) return sv[key];
         
         // Add listener for removal event
-        view.listenTo(this, "clean_up", view.remove);
+        view.listenToOnce(this, "clean_up", function() {
+            view.remove();
+            delete sv[key];
+        });
         
         // Set the key
         sv[key] = view;

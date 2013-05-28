@@ -2,7 +2,7 @@
   "name": "bassview",
   "version": "0.0.5",
   "description": "base view for backbone",
-  "main": "index.js",
+  "main": "bassview.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },

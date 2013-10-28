@@ -7,18 +7,28 @@ var BassView = Backbone.View.extend({
     assign : function (selector, view) {
         var selectors;
         if (_.isObject(selector)) {
+            // Check if assignments were past as a map
             selectors = selector;
         }
-        else {
+        else if (view) {
+            // Check if view was past as second arg
             selectors = {};
             selectors[selector] = view;
         }
-        if (!selectors) return;
+        else if (_.isObject(this.__preassigned)) {
+            // Check if any subviews have been pre-assigned 
+            // to selectors when they were instantiated.
+            selectors = _.extend({}, this.__preassigned);
+        } else {
+            return;
+        }
+        
+        // Loop through the object and call setElement for all
         _.each(selectors, function (view, selector) {
             if (typeof view === "string") {
                 view = this.__subviews__[view];
                 if (typeof view === 'undefined') {
-                    throw new Error('view "'+selectors[selector]+'" not found in subviews!');
+                    throw new Error('view "'+selectors[selector]+'" not found in registered subviews!');
                 }
             }
             view.setElement(this.$(selector)).render();
@@ -37,7 +47,7 @@ var BassView = Backbone.View.extend({
     // Registers or retrieves a subview of this view.
     // The main thing here is to automate the process of
     // having subviews listen to their parents for clean_up.
-    subview: function(key, view){
+    subview: function(key, view, selector){
         // Set up subview object
         var sv = this.__subviews__ = this.__subviews__ || {};
         
@@ -52,6 +62,12 @@ var BassView = Backbone.View.extend({
         
         // Set the key
         sv[key] = view;
+        
+        // Check for pre-assignment
+        if (selector) {
+            this.__preassigned = this.__preassigned || {};
+            this.__preassigned[selector] = view;
+        }
         
         // Allow chaining
         return view

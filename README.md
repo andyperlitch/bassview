@@ -8,12 +8,12 @@ It is just an extension of a [Backbone.View](http://backbonejs.org/#View) that p
 
 ## Methods
 
-### bassview.assign
+### assign
 
 Assigns one or more subviews to elements inside the parent view. 
 
 
-#### Usage 1 - bassview.assign( String `selector`, Backbone.View `view` )
+#### Usage 1 - view.assign( String `selector`, Backbone.View `view` )
 
 Assigns `view` to `selector`, internally calling `view.setElement(this.$(selector)).render();`. See link to Ian Storm's Taylor's blog article above.
 
@@ -22,7 +22,7 @@ Assigns `view` to `selector`, internally calling `view.setElement(this.$(selecto
 
 	parentview.assign('div#subview-el', subview);
 
-#### Usage 2 - bassview.assign( String `selector`, String `view_key` )
+#### Usage 2 - view.assign( String `selector`, String `view_key` )
 
 Same as above, but instead looks for a view registered through the `subview` method (below) with the name `view_key`.
 
@@ -32,7 +32,7 @@ Same as above, but instead looks for a view registered through the `subview` met
 	parentview.assign('div#subview-el', 'mySubView');
 
 
-#### Usage 3 - bassview.assign( Object `selectors`)
+#### Usage 3 - view.assign( Object `selectors`)
 
 Performs same action as above multiple times by specifying a single object as the only argument, so this:
 
@@ -49,23 +49,23 @@ Is equivalent to this:
 	view.assign( ".selector3" , "other_subview );
 
 
-#### Usage 4 - bassview.assign()
+#### Usage 4 - view.assign()
 
 Looks for "pre-assigned" views. See the usage for the `subview` method below.
 
 
-### bassview.subview
+### subview
 
 Registers a view as being a subview. Subviews will destroy themselves when their parent views have been removed, preventing zombie views. Also registered subviews can be `assign`ed using usage 2 and 4 above.
 
-#### Usage 1 - bassview.subview( String `key` , Backbone.View `view` )
+#### Usage 1 - view.subview( String `key` , Backbone.View `view` )
 
 Sets a subview with an identifier of `key`. This means that `view` will call its own `remove` function when the parent view is removed.
 
 	var parentview = new Bassview({...});
 	parentview.subview('mySubView', new Bassview({...}));
 
-#### Usage 2 - bassview.subview( String `key` )
+#### Usage 2 - view.subview( String `key` )
 
 Gets a subview registered with identifier `key`:
 
@@ -76,7 +76,7 @@ Gets a subview registered with identifier `key`:
 	console.log(subview === parentview.subview("a_key"));
 	>>> true
 	
-#### Usage 3 - bassview.subview( String `key`, Backbone.View `view`, String `selector` )
+#### Usage 3 - view.subview( String `key`, Backbone.View `view`, String `selector` )
 
 Same as usage 1, but also populates a hidden property called __preassigned with `selector`, so that the subview can be assigned with no arguments:
 

@@ -4,7 +4,7 @@
   "description": "base view for backbone",
   "main": "bassview.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "make test"
   },
   "repository": "https://github.com/andyperlitch/bassview",
   "keywords": [
@@ -16,5 +16,14 @@
   "dependencies": {
     "backbone": ">=1.0.0",
     "underscore": ">=1.4.3"
+  },
+  "devDependencies": {
+    "mocha": "~1.13.0",
+    "sinon": "~1.7.3",
+    "chai": "~1.8.1",
+    "sinon-chai": "~2.4.0",
+    "mocha-phantomjs": "~3.1.5",
+    "beefy": "~0.4.5",
+    "browserify": "~2.35.0"
   }
 }

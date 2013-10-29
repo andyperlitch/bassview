@@ -20,7 +20,24 @@ Then, in a file:
 		
 		initialize: function(options) {
 			
-			// do something awesome
+			// set some subviews
+			this.subview('mySubView', new View());
+			this.subview('mySubView2', new View());
+		}, 
+		
+		render: function() {
+			
+			var json = this.model.toJSON();
+			var html = this.template(json);
+			
+			this.$el.html(html);
+			
+			this.assign({
+				".my-sub-view": "mySubView",
+				".my-sub-view2": "mySubView2"
+			});
+			
+			return this;
 		}
 		
 	});

@@ -6,6 +6,27 @@ This little ditty was inspired in part by a [great article](http://ianstormtaylo
 
 It is just an extension of a [Backbone.View](http://backbonejs.org/#View) that provides two helper methods: assign() and subview().
 
+
+## Installation
+	
+### with browserify
+
+	$ npm install bassview
+
+Then, in a file:
+
+	var View = require('bassview');
+	var MyView = VIew.extend({
+		
+		initialize: function(options) {
+			
+			// do something awesome
+		}
+		
+	});
+	exports = MyView;
+	
+
 ## Methods
 
 ### assign

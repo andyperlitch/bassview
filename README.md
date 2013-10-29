@@ -7,6 +7,8 @@ This little ditty was inspired in part by a [great article](http://ianstormtaylo
 It is just an extension of a [Backbone.View](http://backbonejs.org/#View) that provides two helper methods: assign() and subview().
 
 
+[![build status](https://secure.travis-ci.org/andyperlitch/bassview.png)](http://travis-ci.org/andyperlitch/bassview)
+
 ## Installation
 	
 ### with browserify

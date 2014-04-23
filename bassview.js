@@ -52,7 +52,9 @@ var BassView = Backbone.View.extend({
         var sv = this.__subviews__ = this.__subviews__ || {};
         
         // Check if getting
-        if (view === undefined) return sv[key];
+        if (view === undefined) {
+            return sv[key];
+        }
         
         // Add listener for removal event
         view.listenToOnce(this, "clean_up", function() {
@@ -70,7 +72,7 @@ var BassView = Backbone.View.extend({
         }
         
         // Allow chaining
-        return view
+        return view;
     }
     
 });
